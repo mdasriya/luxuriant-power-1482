@@ -17,6 +17,8 @@ import {
                MenuButton,
                 MenuList, MenuItem,   Heading,  Wrap, WrapItem,Square, Stack,  } from '@chakra-ui/react'
 import '../MiddleSection/Middle.css'
+
+
 const Middle = () => {
     return (
         <>
