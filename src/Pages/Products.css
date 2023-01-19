@@ -1,0 +1,17 @@
+.h1{
+    text-align: center;
+}
+.box{
+justify-content: end;
+}
+.cart{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.text{
+    text-align: left;
+}
+.left:hover{
+color: #805AD5;
+cursor: pointer;
+}
+

@@ -1,0 +1,20 @@
+.footer:hover{
+cursor: pointer;
+margin-top: 5px;
+}
+.footer{
+    margin-top: 5px;
+}
+.flower{
+    text-decoration: none;
+}
+.but1:hover{
+    border-bottom: 2px solid black; 
+    
+ }
+ .dorp:hover{
+     border-bottom: 2px solid black; 
+ }
+ .item:hover{
+     border-bottom: 2px solid black; 
+ }
