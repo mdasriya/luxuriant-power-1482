@@ -2,10 +2,9 @@ import axios from 'axios'
 import React from 'react'
 import { useEffect, useState } from 'react'
 import './Products.css'
+
 import { GridItem, CardBody, Image, Stack, Heading, Text, ListItem, Card, CardFooter, Button, OrderedList, CardHeader, Box, Flex, Spacer, Grid } from '@chakra-ui/react'
 import SingleProduct from './SingleProduct'
-
-
 
 const Products = () => {
     const [prod, setProd] = useState([])
