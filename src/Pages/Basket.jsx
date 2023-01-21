@@ -2,12 +2,18 @@ import axios from 'axios'
 import React from 'react'
 import { useEffect, useState } from 'react'
 import './Products.css'
+
 import { ButtonGroup, MenuItem,MenuList,
      HStack, Image, Stack, Heading, Text, ListItem, Menu, MenuButton, Button, OrderedList, SimpleGrid, Box, Flex, Spacer, Grid } from '@chakra-ui/react'
 import SingleProduct from './SingleProduct'
 import Navbar from '../components/Navbar'
 import { Link } from 'react-router-dom'
 import '../MiddleSection/Middle.css'
+
+
+
+import { GridItem, CardBody, Image, Stack, Heading, Text, ListItem, Card, CardFooter, Button, OrderedList, CardHeader, Box, Flex, Spacer, Grid } from '@chakra-ui/react'
+import SingleProduct from './SingleProduct'
 
 
 const Products = () => {

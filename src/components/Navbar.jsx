@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
 import './nav.css'
 import logo from '../Logo/logo.png'
 import { FaCartArrowDown } from "react-icons/fa";
 import { TfiUser } from "react-icons/tfi";
 import { Image, Flex, Text, Box, Spacer, ButtonGroup, Button, Center, Input, } from '@chakra-ui/react'
 import AdminSecurity from '../Pages/AdminSecurity'
+
 
 const Navbar = () => {
 let cartCount = localStorage.getItem("total")
