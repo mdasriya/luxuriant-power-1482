@@ -228,18 +228,18 @@ const Middle = () => {
 
           </Menu>
           <Menu>
-            <Link to='/flower' className='flower' >
-            <MenuButton className='dorp' border='none' >
+            <Link to='/flower' className='flower' style={{textDecoration:'none'}}>
+            <MenuButton className='dorp' border='none'  >
               FLOWERS
             </MenuButton>
             </Link>
            
 
-            {/* *********************************************************6666666666666666666666666666666666666666****************** */}
+ {/* ****************************6666666666666666666666666666666666666666****************** */}
 
           </Menu>
           <Menu>
-            <Link to='/products'>
+            <Link to='/products' className='flower' style={{textDecoration:'none'}}>
 
             <MenuButton className='dorp' >
               PLANTS
@@ -252,7 +252,7 @@ const Middle = () => {
           </Menu>
           <Menu>
 
-            <Link to='/basket'>
+            <Link to='/basket' className='flower' style={{textDecoration:'none'}}>
 
             <MenuButton className='dorp'>
               GIFT BASKETS & FOOD

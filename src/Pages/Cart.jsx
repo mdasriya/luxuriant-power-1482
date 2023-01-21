@@ -1,29 +1,57 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useEffect } from 'react'
-import { Text, Box, Flex, Spacer, Button, Grid, Image, Stack, Heading, Center, WrapItem } from '@chakra-ui/react'
+import { Text, Box, Flex, Spacer, Button, Grid, Image,GridItem, Stack, Heading, Center } from '@chakra-ui/react'
 import './Cart.css'
-
-
+import { DeleteIcon } from '@chakra-ui/icons'
+import { Link } from "react-router-dom";
 const Cart = () => {
   const [data, setData] = useState([])
-  const[count, setCount] = useState(0)
+  const[totalItem, setTotalItem] = useState(0)
 
-  const getdata = () => {
+  function getData() {
     axios.get('http://localhost:8021/update')
-      .then((res) => {
-        setData(res.data)
-      })
-  }
+        .then((res) => {
+        console.log("res",res.data)
+        setTotalItem(res.data.length)
+      
+            setData(res.data)
+        })
+}
 
-  useEffect(() => {
-    getdata();
-  }, []);
 
+useEffect(() => {
+    getData();
+},[])
 
+function handledelete(id) {
+    axios.delete(`http://localhost:8021/update/${id}`)
+        .then(() => {
+            getData();
+        })
+}
+
+ 
+
+localStorage.setItem("total", totalItem);
   return (
-    <div className='main'>
-      <Flex >
+    <div className='main' >
+      <Box bg='RGBA(0, 0, 0, 0.04)' >
+        
+     
+      <Flex>
+  <Text p='4' as='b' fontSize='4xl'>
+    Shopping Cart
+  </Text>
+  <Spacer />
+  <Text p='4' as='b' fontSize='2xl'>
+    TOTAL ITEM : {totalItem}
+  </Text>
+  
+ 
+</Flex> 
+
+     <Flex >
         <Box p='4' width='70%' height='auto'
         //  border='1px solid blue'
         >
@@ -31,7 +59,7 @@ const Cart = () => {
             // border='1px solid red'
             h='auto'>
             {
-              data.map((prod) => <div key={prod.id}>
+              data.map((prod) => <div key={prod.id} >
 
                 <cardBody className='cart'>
                   <Image width='300px' mb='5px'
@@ -65,14 +93,15 @@ const Cart = () => {
                   </Center>
 
 
-                
-                    <center >
-                      <button className='button' onClick={(()=> setCount(count+1))} >+</button>
-                      <button className='button' >{count}</button>
-                      <button className='button' >-</button>
-                    </center>
-               
+              
 
+        <Center>
+      <Button colorScheme='whatsapp'>Buy Now</Button>
+       
+        </Center>
+
+        <DeleteIcon onClick={(()=>{handledelete(prod.id)})} />
+        
 
                 </cardBody>
               </div>
@@ -82,16 +111,25 @@ const Cart = () => {
 
         </Box>
         <Spacer />
-        <Box p='4' width='30%' height='auto'
-        //  border='1px solid blue'
+        <Box p='4' width='30%' height='auto' mt="-85px"
+          // border='1px solid blue'
         >
+<Grid templateColumns='repeat(1, 1fr)' gap={210}>
+  <GridItem w='100%' h='auto' bg='blue.500' />
+<Spacer />
 
-          <Text as='kbd'>TOTAL PRICE : 900</Text>
+<Link to='/login'>
+<Button w='100%' h='10' bg='blue.500' colorScheme='blue'> 
+<Text as='b' > PLACE ORDER </Text>
+</Button >
+</Link>
+
+</Grid>
 
         </Box>
       </Flex>
 
-
+      </Box>
     </div>
   )
 }

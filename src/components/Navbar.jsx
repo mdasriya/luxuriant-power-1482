@@ -5,10 +5,13 @@ import logo from '../Logo/logo.png'
 import { FaCartArrowDown } from "react-icons/fa";
 import { TfiUser } from "react-icons/tfi";
 import { Image, Flex, Text, Box, Spacer, ButtonGroup, Button, Center, Input, } from '@chakra-ui/react'
-
+import AdminSecurity from '../Pages/AdminSecurity'
 
 
 const Navbar = () => {
+let cartCount = localStorage.getItem("total")
+
+
     return (
         <>
       <Flex minWidth='max-content' alignItems='center' gap='2'>
@@ -130,16 +133,22 @@ const Navbar = () => {
         </Box>
         <Spacer />
         <Center gap="5px" bg='' h='100px' border="black" color='white'>
-          <Input placeholder='medium size' width="320px" color='black'/>
+          <Input placeholder='Search...' width="320px" color='black'/>
+
+
           <Button colorScheme='blue'>Search</Button>
+
+
         </Center>
         <Spacer />
         <ButtonGroup gap='2' mr="12px" bgColor="none">
 
           <Link to='/Cart'>
           <Center>
-            <Button>
+          
+            <Button textDecor='none'>
               < FaCartArrowDown />
+            
             </Button>
           </Center>
             </Link>  
@@ -152,17 +161,15 @@ const Navbar = () => {
            </Link>
           
           </Center>
-
+   {/* <Link to='./admin'> */}
+<Text mt='5px'> <AdminSecurity /> </Text>
+    {/* </Link>        */}
 
         </ButtonGroup>
       </Flex>
       <hr />
       <br />
-      {/* *************************************************** */}
-
-      {/* *************************************************** */}
-   
-      {/* *************************************************** */}
+  
 </>
     )
 }
